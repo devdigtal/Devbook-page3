@@ -24,16 +24,16 @@
     </noscript>
     <script>
         function trackWhatsAppLead(event) {
-            // 1. Redirection ko temporarily roko taaki pixel execute ho sake
+            // 1. WhatsApp redirect ko 0.5 second ke liye hold karo
             event.preventDefault(); 
             
             // 2. Facebook Standard 'Lead' event fire karo
             fbq('track', 'Lead');
             
-            // 3. Ek tiny safe delay (400ms) ke baad redirect karo taaki extension use catch kare
+            // 3. Safe browser delay taaki pixel extension read kar sake
             setTimeout(function() {
                 window.location.href = "https://api.whatsapp.com/send?phone=917050622208&text=I%20want%20to%20join%20Dev%20Book";
-            }, 400);
+            }, 500);
         }
     </script>
 
@@ -88,7 +88,6 @@
         .hero h1 { font-size: 2.5rem; margin-bottom: 15px; }
         .hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px auto; }
 
-        /* Premium Trackable Button Styling */
         .cta-btn {
             display: inline-block;
             background-color: var(--secondary-color);
